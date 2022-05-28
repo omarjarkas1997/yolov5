@@ -1,12 +1,14 @@
 import torch
 
 # Model
-model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s')  # or yolov5n - yolov5x6, custom
 
-# Image
-im = 'https://ultralytics.com/images/zidane.jpg'
+# Images
+img = '/home/Downloads/0511_women-in-meat02.jpg'  # or file, Path, PIL, OpenCV, numpy, list
 
 # Inference
-results = model(im)
+results = model(img)
 
-results.pandas().xyxy[0]
+# Results
+results.show()  # or .show(), .save(), .crop(), .pandas(), etc.
+results.save()
